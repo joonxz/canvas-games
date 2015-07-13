@@ -46,16 +46,16 @@ gulp.task('build', function() {
 
 // Livereload Html changes
 gulp.task('markup', function() {
-    gulp.src('public/collision-test.html')
-    .pipe(livereload({reloadPage: 'public/collision-test.html'}));
+    gulp.src('public/index.html')
+    .pipe(livereload({reloadPage: 'public/index.html'}));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
     livereload.listen();
     gulp.watch('public/*',['markup']);
-    gulp.watch('js/*', ['build']);
-    gulp.watch('sass/*', ['sass']);
+    gulp.watch('frontend/js/*', ['build']);
+    gulp.watch('frontend/sass/**/*', ['sass']);
 });
 
 // Default Task
