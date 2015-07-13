@@ -1,1 +1,1 @@
-# canvas-games
+# Classic Games on Canvas

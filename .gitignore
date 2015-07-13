@@ -1,0 +1,9 @@
+# Dependencies
+/node_modules
+
+# Mac
+.DS_Store
+
+# Assets
+/public/css/*
+/public/js/*
