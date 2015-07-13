@@ -7,4 +7,8 @@ var draw = function () {
     ctx.fillText("Hello World",10,50);
   }
   ctx.restore();
+
+  for (var i = 0; i < entities.length; i++) {
+    entities[i].draw(ctx);
+  };
 }
