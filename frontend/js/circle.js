@@ -2,11 +2,12 @@ var Circle = function (x, y) {
   this.x = x;
   this.y = y;
   this.radius = 20;
-  this.color = 'green';
+  this.color = 'blue';
+  this.angle = 0;
 }
 
 Circle.prototype.update = function(time) {
-  
+
 };
 
 Circle.prototype.draw = function(ctx) {
@@ -20,3 +21,10 @@ Circle.prototype.draw = function(ctx) {
   }
   ctx.restore();
 };
+
+Circle.prototype.collidesWith = function(otherCircle) {
+  var sumRadius = otherCircle.radius + this.radius;
+  var distance = Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
+  return distance <= sumRadius;
+};
+
