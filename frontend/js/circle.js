@@ -1,7 +1,7 @@
 var Circle = function (x, y) {
   this.x = x;
   this.y = y;
-  this.radius = 20;
+  this.radius = 5;
   this.color = 'blue';
   this.angle = 0;
 }

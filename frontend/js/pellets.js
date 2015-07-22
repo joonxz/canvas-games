@@ -7,6 +7,6 @@ var Pellets = function (x, y) {
 
 Pellets.prototype = new Circle();
 
-Circle.prototype.update = function(time) {
-
+Pellets.prototype.update = function(time) {
+  
 };
