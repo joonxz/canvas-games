@@ -7,17 +7,18 @@ var simulation = function (time) {
 
   for (var i = 0; i < entities.length; i++) {
     var entity = entities[i];
-    console.log(entity);
 
     if (entity instanceof Pellets) { 
       if (snake.collidesWith(entity)) {
         snake.color = 'orange';
 
-        // remove current pellet and create a new one
+        // sets dead property to true for removal on filter
         entity.dead = true;
         createPellet();
+        score += 1;
         break;
       }
+      
       if (!snake.collidesWith(entity)) {
         snake.color = 'blue';
       }
@@ -25,6 +26,7 @@ var simulation = function (time) {
   }
 
   entities = entities.filter(function (entity) {
+    //only returns any entity within the array with the dead property false. 
     return (entity.dead === false);
   });
 };

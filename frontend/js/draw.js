@@ -4,7 +4,7 @@ var draw = function () {
   ctx.save();
   {
     ctx.font = "20px Arial";
-    ctx.fillText("Hello World",10,50);
+    ctx.fillText("Score: " + score,10,canvas.height - 10);
   }
   ctx.restore();
 
