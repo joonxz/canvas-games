@@ -1,23 +1,43 @@
-// // mapping
-// document.onkeydown = function(e) {
-//     console.log(e.keyCode);
-//   switch (e.keyCode) {
-//     case 37:
-//         // left
-//         snake.y = -1;
-//         break;
-//     case 39:
-//         // right
-//         snake.y = 1;
-//         break;
-// };
+// mapping
+document.onkeydown = function(e) {
+  switch (e.keyCode) {
+    case 37:
+        // left
+        dir = "left";
+        break;
+    case 38:
+        // up
+        dir = "up";
+        break;
+    case 39:
+        // right
+        dir = "right";
+        break;
+    case 40:
+        // down
+        dir = "down";
+        break;
+    }
+};
 
-// document.onkeyup = function(e) {
-//   switch (e.keyCode) {
-//     case 37:
-//         snake.y = 0;
-//         break;
-//     case 39:
-//         snake.y = 0;
-//         break;
-// };
+document.onkeyup = function(e) {
+  switch (e.keyCode) {
+    case 37:
+        // left
+        dir = "left";
+        break;
+    case 38:
+        // up
+        dir = "up";
+        break;
+    case 39:
+        // right
+        dir = "right";
+        break;
+    case 40:
+        // down
+        dir = "down";
+        break;
+    }
+};
+

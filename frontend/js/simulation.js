@@ -12,6 +12,9 @@ var simulation = function (time) {
       if (snake.collidesWith(entity)) {
         snake.color = 'orange';
       }
+      if (!snake.collidesWith(entity)) {
+        snake.color = 'blue';
+      }
     }
   }
 };
