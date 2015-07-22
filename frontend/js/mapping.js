@@ -3,19 +3,27 @@ document.onkeydown = function(e) {
   switch (e.keyCode) {
     case 37:
         // left
-        dir = "left";
+        if (dir != "right") {
+           dir = "left"; 
+        }
         break;
     case 38:
         // up
-        dir = "up";
+        if (dir != "down") {
+           dir = "up"; 
+        }
         break;
     case 39:
         // right
-        dir = "right";
+        if (dir != "left") {
+           dir = "right"; 
+        }
         break;
     case 40:
         // down
-        dir = "down";
+        if (dir != "up") {
+           dir = "down"; 
+        }
         break;
     }
 };
@@ -24,19 +32,27 @@ document.onkeyup = function(e) {
   switch (e.keyCode) {
     case 37:
         // left
-        dir = "left";
+        if (dir != "right") {
+           dir = "left"; 
+        }
         break;
     case 38:
         // up
-        dir = "up";
+        if (dir != "down") {
+           dir = "up"; 
+        }
         break;
     case 39:
         // right
-        dir = "right";
+        if (dir != "left") {
+           dir = "right"; 
+        }
         break;
     case 40:
         // down
-        dir = "down";
+        if (dir != "up") {
+           dir = "down"; 
+        }
         break;
     }
 };
