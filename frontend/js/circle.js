@@ -3,7 +3,7 @@ var Circle = function (x, y) {
   this.y = y;
   this.radius = 5;
   this.color = 'blue';
-  this.angle = 0;
+  this.dead = false;
 }
 
 Circle.prototype.update = function(time) {

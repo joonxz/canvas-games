@@ -12,9 +12,9 @@ var simulation = function (time) {
     if (entity instanceof Pellets) { 
       if (snake.collidesWith(entity)) {
         snake.color = 'orange';
-        
+
         // remove current pellet and create a new one
-        entities.splice(1, 1);
+        entity.dead = true;
         createPellet();
         break;
       }
@@ -23,4 +23,8 @@ var simulation = function (time) {
       }
     }
   }
+
+  entities = entities.filter(function (entity) {
+    return (entity.dead === false);
+  });
 };
