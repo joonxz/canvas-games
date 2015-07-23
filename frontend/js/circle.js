@@ -1,7 +1,7 @@
 var Circle = function (x, y) {
   this.x = x;
   this.y = y;
-  this.radius = 5;
+  this.radius = 4;
   this.color = 'blue';
   this.dead = false;
 }
@@ -24,7 +24,10 @@ Circle.prototype.draw = function(ctx) {
 
 Circle.prototype.collidesWith = function(otherCircle) {
   var sumRadius = otherCircle.radius + this.radius;
-  var distance = Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
+  var distance = this.distanceTo(otherCircle);
   return distance <= sumRadius;
 };
 
+Circle.prototype.distanceTo = function(otherCircle) {
+  return Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
+};

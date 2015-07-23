@@ -1,15 +1,15 @@
 var handleInput = function () {
 
   if (dir === "right") {
-    snake.x += speed;
+    snake.velocity = {x: 8, y: 0};
   }
   if (dir === "left") {
-    snake.x -= speed;  
+    snake.velocity = {x: -8, y: 0};  
   }
   if (dir === "down") {
-    snake.y += speed;  
+    snake.velocity = {x: 0, y: 8};  
   }
   if (dir === "up") {
-    snake.y -= speed;  
+    snake.velocity = {x: 0, y: -8};  
   }
 };
