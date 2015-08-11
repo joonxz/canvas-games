@@ -5,7 +5,9 @@ var Snake = function (x, y) {
   this.color = 'blue';
   this.dead = false;
   this.tail = [];
-  this.velocity = {x: 1.0, y: 0.0};
+
+  this.direction = {x: 1.0, y: 0.0};
+  this.speed     = 8;
 };
 
 Snake.prototype.draw = function (ctx) {
@@ -35,8 +37,13 @@ Snake.prototype.update = function(time) {
     this.tail[0].y = this.y;
   }
 
-  this.x += this.velocity.x;
-  this.y += this.velocity.y;
+  var velocity = {
+    x: this.direction.x * this.speed,
+    y: this.direction.y * this.speed
+  };
+
+  this.x += velocity.x;
+  this.y += velocity.y;
 };
 
 Snake.prototype.eat = function(pellet) {
@@ -49,3 +56,19 @@ Snake.prototype.collidesWith = function(otherCircle) {
   var distance = Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
   return distance <= sumRadius;
 };
+
+Snake.prototype.collidesWithWall = function() {
+  if (this.x <= this.radius) {
+    return true;
+  }
+  if (this.x >= canvas.width - this.radius) {
+    return true;
+  }
+  if (this.y <= this.radius) {
+    return true;
+  }
+  if (this.y >= canvas.height - this.radius) {
+    return true;
+  }
+};
+
