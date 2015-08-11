@@ -6,6 +6,15 @@ var Snake = function (x, y) {
   this.dead = false;
   this.tail = [];
 
+  this.eat({});
+  this.eat({});
+  this.eat({});
+  this.eat({});
+  this.eat({});
+  this.eat({});
+  this.eat({});
+  this.eat({});
+
   this.direction = {x: 1.0, y: 0.0};
   this.speed     = 8;
 };
@@ -52,7 +61,7 @@ Snake.prototype.eat = function(pellet) {
 };
 
 Snake.prototype.collidesWith = function(otherCircle) {
-  var sumRadius = otherCircle.radius + this.radius;
+  var sumRadius = otherCircle.radius + (this.radius);
   var distance = Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
   return distance <= sumRadius;
 };
