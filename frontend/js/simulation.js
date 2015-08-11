@@ -31,6 +31,10 @@ var simulation = function (time) {
       if(snake.collidesWithWall()) {
         gameover = true;
       }
+
+      if (snake.collidesWithSelf()) {
+        gameover = true;
+      }
     }
 
 

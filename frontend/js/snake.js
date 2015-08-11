@@ -72,3 +72,12 @@ Snake.prototype.collidesWithWall = function() {
   }
 };
 
+Snake.prototype.collidesWithSelf = function() {
+  for (var i = 0; i < this.tail.length; i++) {
+    if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
+      return true;
+    }
+  };
+  
+};
+
