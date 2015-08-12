@@ -1,6 +1,7 @@
 var draw = function () {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // grid for testing ------------
   ctx.save();
   {
     ctx.beginPath();
@@ -14,10 +15,11 @@ var draw = function () {
       ctx.moveTo(0, y + 0.5);
       ctx.lineTo(canvas.width, y + 0.5);
     }
-
+    ctx.strokeStyle="#d3d3d3";
     ctx.stroke();
   }
   ctx.restore();
+  // ------------------------------
 
   ctx.save();
   {

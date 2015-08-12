@@ -23,12 +23,12 @@ var simulation = function (time) {
           snake.eat(entity);
           createPellet(); 
           score += 1;
-          fps += 1;
+          fps += 0.2;
           break;
         }
       }
 
-      if(snake.collidesWithWall()) {
+      if (snake.collidesWithWall()) {
         gameover = true;
       }
 
@@ -36,8 +36,6 @@ var simulation = function (time) {
         gameover = true;
       }
     }
-
-
 
     entities = entities.filter(function (entity) {
       //only returns any entity within the array with the dead property false. 

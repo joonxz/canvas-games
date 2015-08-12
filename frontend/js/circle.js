@@ -22,12 +22,6 @@ Circle.prototype.draw = function(ctx) {
   ctx.restore();
 };
 
-Circle.prototype.collidesWith = function(otherCircle) {
-  var sumRadius = otherCircle.radius + this.radius;
-  var distance = this.distanceTo(otherCircle);
-  return distance <= sumRadius;
-};
-
 Circle.prototype.distanceTo = function(otherCircle) {
   return Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
 };

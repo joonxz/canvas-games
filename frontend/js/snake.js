@@ -1,7 +1,7 @@
 var Snake = function (x, y) {
   this.x = x;
   this.y = y;
-  this.radius = 5;
+  this.radius = 4;
   this.color = 'blue';
   this.dead = false;
   this.tail = [];
@@ -23,7 +23,7 @@ Snake.prototype.draw = function (ctx) {
   ctx.save();
   {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+    ctx.arc(this.x, this.y, this.radius + 1, 0, Math.PI*2, true);
     ctx.closePath();
     ctx.fillStyle = this.color;
     ctx.fill();
@@ -61,9 +61,9 @@ Snake.prototype.eat = function(pellet) {
 };
 
 Snake.prototype.collidesWith = function(otherCircle) {
-  var sumRadius = otherCircle.radius + (this.radius);
+  var sumRadius = otherCircle.radius + this.radius;
   var distance = Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
-  return distance <= sumRadius;
+  return distance < sumRadius;
 };
 
 Snake.prototype.collidesWithWall = function() {
@@ -86,7 +86,7 @@ Snake.prototype.collidesWithSelf = function() {
     if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
       return true;
     }
-  };
+  }
   
 };
 
