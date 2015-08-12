@@ -23,7 +23,7 @@ var simulation = function (time) {
           snake.eat(entity);
           createPellet(); 
           score += 1;
-          fps += 0.2;
+          fps += 0.5;
           break;
         }
       }

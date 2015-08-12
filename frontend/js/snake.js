@@ -2,7 +2,7 @@ var Snake = function (x, y) {
   this.x = x;
   this.y = y;
   this.radius = 4;
-  this.color = 'blue';
+  this.color = '#fa1b88';
   this.dead = false;
   this.tail = [];
 

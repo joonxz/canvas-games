@@ -1,6 +1,15 @@
 var draw = function () {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // apply bg color 
+  ctx.save();
+  {
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+  }
+  ctx.restore();
+
+
   // grid for testing ------------
   ctx.save();
   {
@@ -21,6 +30,7 @@ var draw = function () {
   ctx.restore();
   // ------------------------------
 
+  // Text
   ctx.save();
   {
     ctx.font = "20px Arial";
@@ -31,4 +41,22 @@ var draw = function () {
   for (var i = 0; i < entities.length; i++) {
     entities[i].draw(ctx);
   };
+
+  // retrieve image data for color filters
+  var canvasImageData = ctx.getImageData( 0, 0, canvas.width, canvas.height);
+  var data = canvasImageData.data;
+
+  var grayscaleFilter = function() {
+    for (var i = 0; i < data.length; i += 4) {
+      var avg = (data[i + 0] + data[i +1] + data[i +2]) / 3;
+      data[i + 0] = avg; // red
+      data[i + 1] = avg; // green
+      data[i + 2] = avg; // blue
+      // data[i + 3] = 255;
+    }
+    ctx.putImageData(canvasImageData, 0, 0);
+  };
+  // initialize grayscale Filter
+  // grayscaleFilter();
+
 }
