@@ -3,7 +3,7 @@ var Pellets = function (x, y) {
   this.y = y;
   this.radius = 4;
   this.dead = false;
-  this.color = 'black';
+  this.color = pelletColor;
 }
 
 Pellets.prototype.draw = function (ctx) {

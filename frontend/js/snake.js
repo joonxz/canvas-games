@@ -2,18 +2,15 @@ var Snake = function (x, y) {
   this.x = x;
   this.y = y;
   this.radius = 4;
-  this.color = '#fa1b88';
+  this.color = snakeColor;
   this.dead = false;
   this.tail = [];
 
-  this.eat({});
-  this.eat({});
-  this.eat({});
-  this.eat({});
-  this.eat({});
-  this.eat({});
-  this.eat({});
-  this.eat({});
+  // create default tail -----
+  for (var i = 0; i < 5; i++) {
+    this.eat({});  
+  };
+  // -----
 
   this.direction = {x: 1.0, y: 0.0};
   this.speed     = 8;
@@ -57,7 +54,7 @@ Snake.prototype.update = function(time) {
 
 Snake.prototype.eat = function(pellet) {
   pellet.dead = true;
-  this.tail.unshift(new Circle(this.x, this.y));
+  this.tail.unshift(new Tail(this.x, this.y));
 };
 
 Snake.prototype.collidesWith = function(otherCircle) {

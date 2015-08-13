@@ -1,27 +1,10 @@
-var Circle = function (x, y) {
-  this.x = x;
-  this.y = y;
-  this.radius = 4;
-  this.color = 'blue';
-  this.dead = false;
-}
-
-Circle.prototype.update = function(time) {
-
-};
-
-Circle.prototype.draw = function(ctx) {
-  ctx.save();
-  {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
-    ctx.closePath();
-    ctx.fillStyle = this.color;
-    ctx.fill();
+var grayscaleFilter = function(imgdata, data) {
+  for (var i = 0; i < data.length; i += 4) {
+    var avg = (data[i + 0] + data[i +1] + data[i +2]) / 3;
+    data[i + 0] = avg; // red
+    data[i + 1] = avg; // green
+    data[i + 2] = avg; // blue
+    // data[i + 3] = 255;
   }
-  ctx.restore();
-};
-
-Circle.prototype.distanceTo = function(otherCircle) {
-  return Math.sqrt(Math.pow(otherCircle.x - this.x, 2) + Math.pow(otherCircle.y - this.y, 2));
+  ctx.putImageData(imgdata, 0, 0);
 };

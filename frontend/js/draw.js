@@ -4,7 +4,7 @@ var draw = function () {
   // apply bg color 
   ctx.save();
   {
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height)
   }
   ctx.restore();
@@ -24,7 +24,7 @@ var draw = function () {
       ctx.moveTo(0, y + 0.5);
       ctx.lineTo(canvas.width, y + 0.5);
     }
-    ctx.strokeStyle="#d3d3d3";
+    ctx.strokeStyle = gridColor;
     ctx.stroke();
   }
   ctx.restore();
@@ -34,6 +34,7 @@ var draw = function () {
   ctx.save();
   {
     ctx.font = "20px Arial";
+    ctx.fillColor = scoreColor;
     ctx.fillText("Score: " + score,10,canvas.height - 10);
   }
   ctx.restore();
@@ -46,17 +47,8 @@ var draw = function () {
   var canvasImageData = ctx.getImageData( 0, 0, canvas.width, canvas.height);
   var data = canvasImageData.data;
 
-  var grayscaleFilter = function() {
-    for (var i = 0; i < data.length; i += 4) {
-      var avg = (data[i + 0] + data[i +1] + data[i +2]) / 3;
-      data[i + 0] = avg; // red
-      data[i + 1] = avg; // green
-      data[i + 2] = avg; // blue
-      // data[i + 3] = 255;
-    }
-    ctx.putImageData(canvasImageData, 0, 0);
-  };
-  // initialize grayscale Filter
-  // grayscaleFilter();
+  
+  // initialize Filters
+  // grayscaleFilter(canvasImageData, data);
 
 }
