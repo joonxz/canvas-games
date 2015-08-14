@@ -25,7 +25,10 @@ document.onkeydown = function(e) {
            dir = "down"; 
         }
         break;
+    case 32:
+        break;
     }
+
 };
 
 document.onkeyup = function(e) {
@@ -52,6 +55,13 @@ document.onkeyup = function(e) {
         // down
         if (dir != "up") {
            dir = "down"; 
+        }
+        break;
+    case 32:
+        // spacebar
+        if (gameover === true) {
+            resetGame();
+           gameover = false; 
         }
         break;
     }

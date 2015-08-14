@@ -1,6 +1,7 @@
 var entities = [];
-
-var snake = new Snake(80, 120);
+var snake;
+var dir;
+var score; 
 
 var createPellet = function () {
   var gridSize = 8;
@@ -12,10 +13,16 @@ var createPellet = function () {
   entities.push(new Pellets(pelletX, pelletY));
 };
 
-var createSnake = function () {
+var resetGame = function () {
+  entities = [];
+
+  snake = new Snake(80, 120);
   entities.push(snake);
+  createPellet();
+
+  dir = "right";
+  score = 0; 
 };
 
-createSnake();
+resetGame();
 
-createPellet();

@@ -1,6 +1,6 @@
 var draw = function () {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+  
   // apply bg color 
   ctx.save();
   {
@@ -43,6 +43,10 @@ var draw = function () {
     entities[i].draw(ctx);
   };
 
+  if (gameover) {
+    gameOverScreen();
+    return;
+  }
   // retrieve image data for color filters
   var canvasImageData = ctx.getImageData( 0, 0, canvas.width, canvas.height);
   var data = canvasImageData.data;

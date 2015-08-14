@@ -8,6 +8,7 @@ var simulation = function (time) {
     lastTime = time;
 
     if (gameover) {
+      gameOverScreen();
       return;
     }
 
