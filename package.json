@@ -20,6 +20,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-csso": "^1.0.0",
     "gulp-foreach": "^0.1.0",
+    "gulp-include": "^2.0.3",
     "gulp-jshint": "^1.11.2",
     "gulp-livereload": "^3.8.0",
     "gulp-rename": "^1.2.2",

@@ -9,6 +9,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var csso =   require('gulp-csso');
 var foreach = require('gulp-foreach');
+var include = require('gulp-include');
 
 // download livereload browser extension for livereload to work
 var livereload = require('gulp-livereload');
@@ -35,12 +36,9 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('build', function() {
-    gulp.src('js/*.js')
-    //     .pipe(concat('all.js'))
-    //     .pipe(gulp.dest('public/js'))
-    //     .pipe(rename('all.min.js'))
-    //     .pipe(uglify())
-    //     .pipe(gulp.dest('public/js'))
+    gulp.src('frontend/js/loop.js')
+        .pipe(include())
+        .pipe(gulp.dest('public/js'))
         .pipe(livereload());
 });
 
